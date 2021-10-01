@@ -1,0 +1,12 @@
+F:\NGU\InstitueMgntDemoApi.Shared\bin\Debug\net5.0\InstitueMgntDemoApiData.deps.json
+F:\NGU\InstitueMgntDemoApi.Shared\bin\Debug\net5.0\InstitueMgntDemoApiData.dll
+F:\NGU\InstitueMgntDemoApi.Shared\bin\Debug\net5.0\ref\InstitueMgntDemoApiData.dll
+F:\NGU\InstitueMgntDemoApi.Shared\bin\Debug\net5.0\InstitueMgntDemoApiData.pdb
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.GeneratedMSBuildEditorConfig.editorconfig
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.AssemblyInfoInputs.cache
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.AssemblyInfo.cs
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.csproj.CoreCompileInputs.cache
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.dll
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\ref\InstitueMgntDemoApiData.dll
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.pdb
+F:\NGU\InstitueMgntDemoApi.Shared\obj\Debug\net5.0\InstitueMgntDemoApiData.csproj.AssemblyReference.cache
