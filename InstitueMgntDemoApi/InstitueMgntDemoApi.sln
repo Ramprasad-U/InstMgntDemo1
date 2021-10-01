@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstitueMgntDemoApi", "Inst
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstitueMgntDemoApiData", "..\InstitueMgntDemoApi.Shared\InstitueMgntDemoApiData.csproj", "{EDB0B709-8C41-4B91-963E-3BC17235C1F3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstitueMgntDemoApi.Services", "..\InstitueMgntDemoApi.Services\InstitueMgntDemoApi.Services.csproj", "{8E462CCC-AAD5-40FC-B77F-A1B5516B6721}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{C88884F6-58B2-48F1-8C2E-D7BAEB86837A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstitueMgntDemoApi.Services", "..\InstitueMgntDemoApi.Services\InstitueMgntDemoApi.Services.csproj", "{8E462CCC-AAD5-40FC-B77F-A1B5516B6721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{8E462CCC-AAD5-40FC-B77F-A1B5516B6721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E462CCC-AAD5-40FC-B77F-A1B5516B6721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E462CCC-AAD5-40FC-B77F-A1B5516B6721}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C88884F6-58B2-48F1-8C2E-D7BAEB86837A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C88884F6-58B2-48F1-8C2E-D7BAEB86837A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C88884F6-58B2-48F1-8C2E-D7BAEB86837A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C88884F6-58B2-48F1-8C2E-D7BAEB86837A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

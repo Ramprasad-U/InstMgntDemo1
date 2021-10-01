@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InstitueMgntDemoApiData;
-using Microsoft.AspNetCore.Cors;
 
 namespace InstitueMgntDemoApi.Controllers
 {
@@ -20,7 +19,7 @@ namespace InstitueMgntDemoApi.Controllers
         {
             this._facultyRepository = facultyRepository;
         }
-        //[EnableCors("AnotherPolicy")]
+
         [HttpGet]
         public async Task<ActionResult> Getmysubjectlist()
         {

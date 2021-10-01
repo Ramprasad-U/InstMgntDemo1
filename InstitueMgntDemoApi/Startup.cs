@@ -13,15 +13,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using InstitueMgntDemoApi.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json.Serialization;
 
 namespace InstitueMgntDemoApi
 {
     public class Startup
     {
-        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,45 +31,6 @@ namespace InstitueMgntDemoApi
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddScoped<IFacultyRepository, FacultyRepository>();
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod()
-                 .AllowAnyHeader());
-                //c.AddPolicy("AllowOrigin", options => options.WithOrigins('http://localhost:4200/department')
-                //.AllowAnyMethod() .AllowAnyHeader());
-
-            });
-
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AnotherPolicy",
-            //   builder =>
-            //   {
-            //       builder.WithOrigins("http://localhost:4200/")
-            //                           .AllowAnyHeader()
-            //                           .AllowAnyMethod();
-            //   });
-            //});
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(MyAllowSpecificOrigins,
-            //                      builder =>
-            //                      {
-            //                          builder.WithOrigins("http://localhost:4200/")
-            //                          .AllowAnyHeader()
-            //                          .AllowAnyMethod();
-            //                      });
-
-            services.AddControllersWithViews()
-                .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
-                .Json.ReferenceLoopHandling.Ignore)
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
-                = new DefaultContractResolver());
-
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -93,15 +50,7 @@ namespace InstitueMgntDemoApi
 
             app.UseHttpsRedirection();
 
-            //app.UseCors(MyAllowSpecificOrigins);
-
             app.UseRouting();
-
-            //app.UseCors();
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            //app.UseCors(options => options.WithOrigins("http://localhost:4200/department").AllowAnyMethod().AllowAnyHeader());
-
-
 
             app.UseAuthorization();
 
@@ -109,15 +58,6 @@ namespace InstitueMgntDemoApi
             {
                 endpoints.MapControllers();
             });
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/echo",
-            //        context => context.Response.WriteAsync("echo"))
-            //        .RequireCors(MyAllowSpecificOrigins);
-
-            //    endpoints.MapControllers()
-            //             .RequireCors(MyAllowSpecificOrigins);
-            //});
         }
     }
 }
