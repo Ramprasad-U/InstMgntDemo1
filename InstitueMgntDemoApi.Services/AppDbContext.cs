@@ -8,9 +8,9 @@ using InstitueMgntDemoApiData;
 
 namespace InstitueMgntDemoApi.Services
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
@@ -22,12 +22,15 @@ namespace InstitueMgntDemoApi.Services
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectBelongsTo> SubjectBelongsTos { get; set; }
         public DbSet<FacultyAssignToSubject> FacultyAssignToSubjects { get; set; }
+        //Attendance Details
+        public DbSet<AttendanceDetails> AttendanceDetails { get; set; }
+
+        //Attendance
+        public DbSet<Attendance> Attendances { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             //Seed Departments Table
             modelBuilder.Entity<Department>().HasData(
                 new Department {
@@ -165,6 +168,7 @@ namespace InstitueMgntDemoApi.Services
                 SubjectBelongsToId = 5,
                 Section = Section.SEC01
             });
+
         }
     }
 

@@ -32,49 +32,35 @@ namespace InstitueMgntDemoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddScoped<IFacultyRepository, FacultyRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
 
-            services.AddCors(c =>
+            services.AddCors(opt =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod()
-                 .AllowAnyHeader());
-                //c.AddPolicy("AllowOrigin", options => options.WithOrigins('http://localhost:4200/department')
-                //.AllowAnyMethod() .AllowAnyHeader());
-
+                opt.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
             });
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AnotherPolicy",
-            //   builder =>
-            //   {
-            //       builder.WithOrigins("http://localhost:4200/")
-            //                           .AllowAnyHeader()
-            //                           .AllowAnyMethod();
-            //   });
-            //});
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(MyAllowSpecificOrigins,
-            //                      builder =>
-            //                      {
-            //                          builder.WithOrigins("http://localhost:4200/")
-            //                          .AllowAnyHeader()
-            //                          .AllowAnyMethod();
-            //                      });
-
-            services.AddControllersWithViews()
-                .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
-                .Json.ReferenceLoopHandling.Ignore)
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
-                = new DefaultContractResolver());
 
 
-            services.AddControllers();
+            //services.AddControllersWithViews()
+            //    .AddNewtonsoftJson(options =>
+            //    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
+            //    .Json.ReferenceLoopHandling.Ignore)
+            //    .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+            //    = new DefaultContractResolver());
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InstitueMgntDemoApi", Version = "v1" });
@@ -93,15 +79,8 @@ namespace InstitueMgntDemoApi
 
             app.UseHttpsRedirection();
 
-            //app.UseCors(MyAllowSpecificOrigins);
-
             app.UseRouting();
-
-            //app.UseCors();
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            //app.UseCors(options => options.WithOrigins("http://localhost:4200/department").AllowAnyMethod().AllowAnyHeader());
-
-
+            app.UseCors();
 
             app.UseAuthorization();
 
@@ -109,15 +88,7 @@ namespace InstitueMgntDemoApi
             {
                 endpoints.MapControllers();
             });
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/echo",
-            //        context => context.Response.WriteAsync("echo"))
-            //        .RequireCors(MyAllowSpecificOrigins);
-
-            //    endpoints.MapControllers()
-            //             .RequireCors(MyAllowSpecificOrigins);
-            //});
+           
         }
     }
 }

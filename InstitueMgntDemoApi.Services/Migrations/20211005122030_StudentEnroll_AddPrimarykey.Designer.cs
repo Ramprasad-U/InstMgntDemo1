@@ -4,65 +4,22 @@ using InstitueMgntDemoApi.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InstitueMgntDemoApi.Services.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211005122030_StudentEnroll_AddPrimarykey")]
+    partial class StudentEnroll_AddPrimarykey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("InstitueMgntDemoApiData.Attendance", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("attId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("attendanceStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("enrollId")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("attId");
-
-                    b.HasIndex("enrollId");
-
-                    b.ToTable("Attendances");
-                });
-
-            modelBuilder.Entity("InstitueMgntDemoApiData.AttendanceDetails", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("subBelongsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("subBelongsId");
-
-                    b.ToTable("AttendanceDetails");
-                });
 
             modelBuilder.Entity("InstitueMgntDemoApiData.Branch", b =>
                 {
@@ -388,36 +345,6 @@ namespace InstitueMgntDemoApi.Services.Migrations
                             Sem = 1,
                             SubjectId = 3
                         });
-                });
-
-            modelBuilder.Entity("InstitueMgntDemoApiData.Attendance", b =>
-                {
-                    b.HasOne("InstitueMgntDemoApiData.AttendanceDetails", "AttendanceDetails")
-                        .WithMany()
-                        .HasForeignKey("attId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("InstitueMgntDemoApiData.StudentEnroll", "studentEnroll")
-                        .WithMany()
-                        .HasForeignKey("enrollId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AttendanceDetails");
-
-                    b.Navigation("studentEnroll");
-                });
-
-            modelBuilder.Entity("InstitueMgntDemoApiData.AttendanceDetails", b =>
-                {
-                    b.HasOne("InstitueMgntDemoApiData.SubjectBelongsTo", "subjectBelongsTo")
-                        .WithMany()
-                        .HasForeignKey("subBelongsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("subjectBelongsTo");
                 });
 
             modelBuilder.Entity("InstitueMgntDemoApiData.Employee", b =>

@@ -26,6 +26,7 @@ namespace InstitueMgntDemoApi.Controllers
         {
             return Ok (await _facultyRepository.mySubjectsList());
         }
+
         [HttpGet("{id}",Name = "GetFacultyAssignToSubjectById")]
         public async Task<ActionResult<FacultyAssignToSubject>> GetFacultyAssignToSubjectById(int id)
         {
@@ -51,6 +52,7 @@ namespace InstitueMgntDemoApi.Controllers
                     new { id = createdFacultyAssignToSubject.Id }, createdFacultyAssignToSubject);
             
         }
+        
         [HttpGet]//("{subid}", Name = "listStubysubbelongstoid")]
         [Route("~/studentlist/{subid}")]
         public async Task<ActionResult> listStubysubbelongstoid(int subid)

@@ -11,5 +11,7 @@ namespace InstitueMgntDemoApi.Services
     {
         Task<IEnumerable<Department>> GetDepartments();
         Task<Department> GetDepartmentById(int id);
+        Task<Department> AddDepartment(Department department);
+        Task<Department> GetDepartmentByName(string Name);
     }
 }

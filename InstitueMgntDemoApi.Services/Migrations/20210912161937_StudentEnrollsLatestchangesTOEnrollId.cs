@@ -27,7 +27,10 @@ namespace InstitueMgntDemoApi.Services.Migrations
                                 [Semester]        INT NOT NULL,
                                 [Section]         INT NOT NULL,
                                 [Id]              INT IDENTITY (1, 1) NOT NULL
-                            );";
+                            );
+                            GO
+                            ALTER TABLE [dbo].[StudentEnrolls]
+                                ADD CONSTRAINT [PK_StudentEnrolls] PRIMARY KEY CLUSTERED ([Id] ASC);";
             migrationBuilder.Sql(table);
         }
 
