@@ -39,6 +39,9 @@ namespace InstitueMgntDemoApi
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<ISubjectRepository, SubjectRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IAttendanceDetailsRepository, AttendanceDetailsRepository>();
+            services.AddScoped<IAttendanceRepository, AttendanceRepository>();
 
             services.AddCors(opt =>
             {

@@ -19,9 +19,17 @@ namespace InstitueMgntDemoApi.Services
         }
         public async Task<Employee> AddEmployee(Employee employee)
         {
-            _appDbContext.Set<Employee>().Add(employee);
+            if(employee.Department != null)
+            {
+                _appDbContext.Entry(employee.Department).State = EntityState.Unchanged;
+            }
+
+            var result = await _appDbContext.Employees.AddAsync(employee);
             await _appDbContext.SaveChangesAsync();
-            return employee;
+            return result.Entity;
+            //_appDbContext.Set<Employee>().Add(employee);
+            //await _appDbContext.SaveChangesAsync();
+            //return employee;
 
             //throw new NotImplementedException();
         }

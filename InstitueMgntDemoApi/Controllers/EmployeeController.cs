@@ -21,6 +21,7 @@ namespace InstitueMgntDemoApi.Controllers
         {
             this._employeeRepository = employeeRepository;
         }
+        [HttpGet]
         public async Task<ActionResult> GetEmployees()
         {
             try
@@ -70,6 +71,7 @@ namespace InstitueMgntDemoApi.Controllers
             }
         }
 
+        [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
             try

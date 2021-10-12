@@ -38,12 +38,12 @@ namespace InstitueMgntDemoApi.Controllers
             }
         }
 
-        [HttpGet("{email}", Name = "GetStudentInfoById")]
+        [HttpGet("{email}", Name = "GetStudentInfoByEmail")]
         public async Task<ActionResult<StudentInfo>> GetStudentInfoByEmail(string email)
         {
             try
             {
-                var result = (await _studentRepository.GetStudentInfoByEmail(email));
+                var result = await _studentRepository.GetStudentInfoByEmail(email);
                 if (result == null)
                 {
                     return NotFound();
