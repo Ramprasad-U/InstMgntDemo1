@@ -8,8 +8,8 @@ namespace InstitueMgntDemoApiData
 {
     public enum AttendanceStatus
     {
-        Present='P',
-        Absent='A'
+        Present,
+        Absent
 
     }
 

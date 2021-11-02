@@ -41,6 +41,7 @@ namespace InstitueMgntDemoApi.Services
 
         public async Task<IEnumerable<StudentInfo>> GetStudentInfos()
         {
+            //return await _appDbContext.StudentInfos
             return await _appDbContext.StudentInfos.ToListAsync();
             //throw new NotImplementedException();
         }

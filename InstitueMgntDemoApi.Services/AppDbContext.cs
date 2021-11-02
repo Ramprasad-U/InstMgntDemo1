@@ -41,6 +41,7 @@ namespace InstitueMgntDemoApi.Services
                     DepartmentId = 2,
                     DepartmentName = "Administator" });
 
+            //modelBuilder.Entity<Employee>().Property(x => x.EmpGender).HasConversion<int>();
             // Seed Employee Table
             modelBuilder.Entity<Employee>().HasData(new Employee
             {
@@ -168,6 +169,7 @@ namespace InstitueMgntDemoApi.Services
                 SubjectBelongsToId = 5,
                 Section = Section.SEC01
             });
+
 
         }
     }
